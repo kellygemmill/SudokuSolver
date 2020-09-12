@@ -8,7 +8,7 @@ The backend of this web app is written in Java using Spring Boot.
 The sudoku board model is composed of multiple components and makes extensive use of polymorphism and inheritance.
 
 #### Square:
-The smallest element of the model is an individual Square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in.
+The smallest element of the model is an individual square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in.
 
 #### SquareGroup:
 This is an abstract class representing any group of squares (row, column, box, or the entire board). 
@@ -17,7 +17,7 @@ This is an abstract class representing any group of squares (row, column, box, o
 These classes extend the SquareGroup class and represent the rows and columns of the board, making it easy to query whether a row or column contains a value.
 
 #### Box: 
-This class extends the SquareGroup class and represents a box of squares. In a typical 9x9 sudoku puzzle, this represents a 3x3 box of squares.
+This class extends the SquareGroup class and represents a box of squares. In a typical 9x9 sudoku puzzle, this represents a 3x3 box of squares. Similar to the Row and Column classes, this class makes it easy to query whether a box contains a value. Additionally, the SudokuBoard class inherits this class due to similarity in structure.
 
 #### SudokuBoard:
 This class extends the Box class and represents the entire sudoku board. Note that the board retains only the list of squares and whether it is solved, while the individual squares handle the logic of whether a value placement is valid.

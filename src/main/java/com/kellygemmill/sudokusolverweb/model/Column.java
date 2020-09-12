@@ -1,4 +1,4 @@
-package com.kellygemmill.sudokusolverreact.model;
+package com.kellygemmill.sudokusolverweb.model;
 
 import java.util.List;
 import java.util.stream.Collectors;

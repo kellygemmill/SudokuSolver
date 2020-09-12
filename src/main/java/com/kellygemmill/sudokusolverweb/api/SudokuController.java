@@ -1,7 +1,7 @@
-package com.kellygemmill.sudokusolverreact.api;
+package com.kellygemmill.sudokusolverweb.api;
 
-import com.kellygemmill.sudokusolverreact.model.SudokuSummary;
-import com.kellygemmill.sudokusolverreact.service.SudokuService;
+import com.kellygemmill.sudokusolverweb.model.SudokuSummary;
+import com.kellygemmill.sudokusolverweb.service.SudokuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

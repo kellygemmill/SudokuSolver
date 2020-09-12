@@ -1,4 +1,4 @@
-package com.kellygemmill.sudokusolverreact.model;
+package com.kellygemmill.sudokusolverweb.model;
 
 public class SudokuSummary {
 

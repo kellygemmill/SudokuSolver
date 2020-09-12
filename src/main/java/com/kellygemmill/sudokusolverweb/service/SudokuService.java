@@ -1,7 +1,7 @@
-package com.kellygemmill.sudokusolverreact.service;
+package com.kellygemmill.sudokusolverweb.service;
 
-import com.kellygemmill.sudokusolverreact.model.Square;
-import com.kellygemmill.sudokusolverreact.model.SudokuBoard;
+import com.kellygemmill.sudokusolverweb.model.Square;
+import com.kellygemmill.sudokusolverweb.model.SudokuBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

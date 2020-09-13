@@ -4,8 +4,9 @@ import Square from './Square'
 const SudokuBoard = ( {sudokuValue,handleSudokuField} ) => {
     
     const style = {
-        height: "360px",
-        width: "360px",
+        border: "4px solid black",
+        height: "368px",
+        width: "368px",
         margin: "0 auto",
         display: "grid",
         gridTemplate: "repeat(9, 1fr) / repeat(9, 1fr)",

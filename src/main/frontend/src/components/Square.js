@@ -3,13 +3,14 @@ import React from 'react'
     const style = {
         background: "white",
         border: "2px solid black",
-        fontSize: "30px",
-        fontWeight: "800",
+        fontSize: "25px",
+        fontWeight: "700",
         cursor: "pointer",
         outline: "none",
-        width: "36px",
-        height: "36px",
+        width: "40px",
+        height: "40px",
         textAlign: "center",
+        verticalAlign: "middle",
         padding:0   
         
     };

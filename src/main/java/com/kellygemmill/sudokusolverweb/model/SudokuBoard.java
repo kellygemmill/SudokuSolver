@@ -78,7 +78,7 @@ public class SudokuBoard extends Box {
         this.solved = solved;
     }
 
-    public boolean getSolved() {
+    public boolean isSolved() {
         return solved;
     }
 

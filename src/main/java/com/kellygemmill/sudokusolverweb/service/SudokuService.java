@@ -2,6 +2,7 @@ package com.kellygemmill.sudokusolverweb.service;
 
 import com.kellygemmill.sudokusolverweb.model.Square;
 import com.kellygemmill.sudokusolverweb.model.SudokuBoard;
+import com.kellygemmill.sudokusolverweb.model.SudokuSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,31 +20,28 @@ public class SudokuService {
         this.sudokuSolver = sudokuSolver;
     }
 
-    public SudokuBoard solve(String boardInput) {
+    public SudokuBoard solve(String[] boardInput) {
         SudokuBoard sudokuBoard = initializeBoard(boardInput);
         sudokuSolver.solve(sudokuBoard);
         return sudokuBoard;
     }
 
-    private SudokuBoard initializeBoard(String boardInput) {
+    public SudokuSummary solve(SudokuSummary sudokuSummary) {
+        SudokuBoard sudokuBoard = initializeBoard(sudokuSummary.getOriginal());
+        sudokuSolver.solve(sudokuBoard);
+        sudokuSummary.setSolution(sudokuBoard);
+        return sudokuSummary;
+    }
+
+    private SudokuBoard initializeBoard(String[] boardInput) {
         List<Square> squares = createSquares(boardInput);
         return new SudokuBoard(squares);
     }
 
-    private List<Square> createSquares(String boardInput) {
-        List<Integer> boardAsInt = Arrays
-                .stream(boardInput.split("\\s++"))
+    private List<Square> createSquares(String[] boardInput) {
+        return Arrays.stream(boardInput)
                 .map(Integer::parseInt)
-                .collect(Collectors.toList());
-
-        return this.createSquares(boardAsInt);
-    }
-
-    private List<Square> createSquares(List<Integer> boardInput) {
-        return boardInput
-                .stream()
                 .map(value -> new Square(value, value != 0))    // If value is not zero, it's a pre-provided value
                 .collect(Collectors.toList());
     }
-
 }

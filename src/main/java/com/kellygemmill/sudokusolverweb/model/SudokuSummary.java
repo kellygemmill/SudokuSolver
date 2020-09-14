@@ -3,33 +3,33 @@ package com.kellygemmill.sudokusolverweb.model;
 public class SudokuSummary {
 
     private boolean solved;
-    private String[] original;
-    private String[] solution;
+    private Integer[] original;
+    private Integer[] solution;
 
     public SudokuSummary() {
         this.solved = false;
     }
 
-    public SudokuSummary(String[] original) {
+    public SudokuSummary(Integer[] original) {
         this.solved = false;
         this.original = original;
     }
 
-    public SudokuSummary(String[] originalBoard, SudokuBoard sudokuBoard) {
+    public SudokuSummary(Integer[] originalBoard, SudokuBoard sudokuBoard) {
         this.solved = sudokuBoard.isSolved();
         this.original = originalBoard;
-        this.solution = new String[sudokuBoard.getNumSquares()];
+        this.solution = new Integer[sudokuBoard.getNumSquares()];
     }
 
     public boolean isSolved() {
         return this.solved;
     }
 
-    public String[] getOriginal() {
+    public Integer[] getOriginal() {
         return this.original;
     }
 
-    public String[] getSolution() {
+    public Integer[] getSolution() {
         return this.solution;
     }
 
@@ -38,8 +38,7 @@ public class SudokuSummary {
         this.solution = sudokuBoard
                 .getSquares()
                 .stream()
-                .map(square -> square.getValue().toString())
-                .map(value -> value.equals("0") ? "" : value)
-                .toArray(String[]::new);
+                .map(Square::getValue)
+                .toArray(Integer[]::new);
     }
 }

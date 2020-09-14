@@ -11,6 +11,9 @@ import java.util.List;
 public class SudokuSolver {
 
     public void solve(SudokuBoard sudokuBoard) {
+        if (boardNotValid(sudokuBoard)) {
+            return;
+        }
         solve(sudokuBoard,0);
     }
 
@@ -22,7 +25,7 @@ public class SudokuSolver {
 
         Square square = sudokuBoard.getSquares().get(startIdx);
         if (square.isProvidedValue()) {
-            return solve(sudokuBoard,startIdx+1);
+            return solve(sudokuBoard, startIdx + 1);
         }
 
         for (int guess = 1; guess <= sudokuBoard.getSideLength(); guess++) {
@@ -50,6 +53,25 @@ public class SudokuSolver {
     }
 
     private boolean okToAddNumber(SquareGroup group, int number) {
-        return !group.getValues().contains(number);
+        return !group.getValues().containsKey(number);
+    }
+
+    private boolean containsDuplicates(Square square) {
+        return containsDuplicates(square.getRow(),square.getValue())
+                || containsDuplicates(square.getColumn(),square.getValue())
+                || containsDuplicates(square.getBox(),square.getValue());
+    }
+
+    private boolean containsDuplicates(SquareGroup group, int number) {
+        return group.getValues().get(number) > 1;
+    }
+
+    private boolean boardNotValid(SudokuBoard sudokuBoard) {
+        for (Square square : sudokuBoard.getSquares()) {
+            if (square.isProvidedValue() && containsDuplicates(square)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

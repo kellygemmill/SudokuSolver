@@ -1,7 +1,8 @@
 package com.kellygemmill.sudokusolverweb.model;
 
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public abstract class SquareGroup {
@@ -16,12 +17,12 @@ public abstract class SquareGroup {
         return this.squares;
     }
 
-    public Set<Integer> getValues() {
+    public Map<Integer,Long> getValues() {
         return this.squares
                 .stream()
                 .map(Square::getValue)
                 .filter(value -> value != 0)
-                .collect(Collectors.toSet());
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 
 

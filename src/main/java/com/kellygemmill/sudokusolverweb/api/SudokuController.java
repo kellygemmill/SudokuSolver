@@ -5,8 +5,6 @@ import com.kellygemmill.sudokusolverweb.service.SudokuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-
 @RestController
 @RequestMapping("sudoku/solve")
 @CrossOrigin(origins = "*")

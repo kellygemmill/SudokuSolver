@@ -20,12 +20,6 @@ public class SudokuService {
         this.sudokuSolver = sudokuSolver;
     }
 
-    public SudokuBoard solve(String[] boardInput) {
-        SudokuBoard sudokuBoard = initializeBoard(boardInput);
-        sudokuSolver.solve(sudokuBoard);
-        return sudokuBoard;
-    }
-
     public SudokuSummary solve(SudokuSummary sudokuSummary) {
         SudokuBoard sudokuBoard = initializeBoard(sudokuSummary.getOriginal());
         sudokuSolver.solve(sudokuBoard);
@@ -33,15 +27,11 @@ public class SudokuService {
         return sudokuSummary;
     }
 
-    private SudokuBoard initializeBoard(String[] boardInput) {
-        List<Square> squares = createSquares(boardInput);
+    private SudokuBoard initializeBoard(Integer[] boardInput) {
+        List<Square> squares = Arrays.stream(boardInput)
+                .map(value -> new Square(value, value != 0))    // If value is not zero, it's a pre-provided value
+                .collect(Collectors.toList());
         return new SudokuBoard(squares);
     }
 
-    private List<Square> createSquares(String[] boardInput) {
-        return Arrays.stream(boardInput)
-                .map(Integer::parseInt)
-                .map(value -> new Square(value, value != 0))    // If value is not zero, it's a pre-provided value
-                .collect(Collectors.toList());
-    }
 }

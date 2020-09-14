@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @RestController
 @RequestMapping("sudoku/solve")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class SudokuController {
 
     private final SudokuService sudokuService;

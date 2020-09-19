@@ -32,7 +32,7 @@ Query the API directly with a post request to [sudoku-api-kg.herokuapp.com](sudo
 ```
 represents the 4x4 sudoku square: 
 
-<img src="./images/4x4.PNG" alt="4x4 sample" /> 
+<img src="./public/4x4.PNG" alt="4x4 sample" /> 
 
 Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle. The response for the puzzle above is: 
 ```

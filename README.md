@@ -39,7 +39,48 @@ represents the 4x4 sudoku square:
 |   | 3 |   |   |
 -----------------
 ```
-Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle.
+Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle. The response for the puzzle above is: 
+```
+{
+    "solved": true,
+    "original": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        3,
+        0,
+        0
+    ],
+    "solution": [
+        3,
+        2,
+        4,
+        1,
+        4,
+        1,
+        3,
+        2,
+        1,
+        4,
+        2,
+        3,
+        2,
+        3,
+        1,
+        4
+    ]
+}
+```
 
 ## Model: 
 The sudoku board model is composed of multiple components and makes extensive use of polymorphism and inheritance.

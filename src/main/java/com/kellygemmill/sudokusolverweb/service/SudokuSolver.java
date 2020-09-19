@@ -18,18 +18,21 @@ public class SudokuSolver {
         do {
             recheck = false;
             for (Square square : sudokuBoard.getSquares()) {
+                if (square.isFinalValue()) {
+                    continue;
+                }
+                
                 List<Integer> possibleValues = square.getPossibleValues();
-                if (!square.isFinalValue() && possibleValues.size() == 1) {
+                if (possibleValues.size() == 1) {
                     square.setValue(possibleValues.get(0));
                     square.setFinalValue(true);
                     recheck = true;
                     continue;
                 }
 
-                if (!square.isFinalValue() &&
-                    (checkSquareGroup(square,square.getRow(),possibleValues) ||
+                if (checkSquareGroup(square,square.getRow(),possibleValues) ||
                     checkSquareGroup(square,square.getColumn(),possibleValues) ||
-                    checkSquareGroup(square,square.getBox(),possibleValues))) {
+                    checkSquareGroup(square,square.getBox(),possibleValues)) {
                     recheck = true;
                 }
             }

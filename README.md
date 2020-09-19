@@ -4,7 +4,7 @@ This is a sudoku solver app written in Java using Spring Boot. This app uses bac
 ## How to use: 
 
 ### Interactive web app:
-Input your puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and your solution will be displayed instantly.
+Input a puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and the solution will be displayed instantly.
 
 ### API:
 Query the api directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Represent unknown squares as 0.  For example:
@@ -31,17 +31,9 @@ Query the api directly with a post request to [sudoku-api-kg.herokuapp.com](sudo
 }
 ```
 represents the 4x4 sudoku square: 
-```
------------------
-|   |   | 4 |   |
------------------
-|   | 1 |   |   |
------------------
-|   |   | 2 |   |
------------------
-|   | 3 |   |   |
------------------
-```
+
+![4x4 sample](./images/4x4.PNG)
+
 Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle. The response for the puzzle above is: 
 ```
 {

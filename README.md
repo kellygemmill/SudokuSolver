@@ -4,7 +4,10 @@ This is a sudoku solver app written in Java using Spring Boot. This app uses bac
 ## How to use: 
 
 ### Interactive web app:
-Input your puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com), or query the api directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Represent unknown squares as 0.  For example:
+Input your puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and your solution will be displayed instantly.
+
+### API:
+Query the api directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Represent unknown squares as 0.  For example:
 ```
 {
   "original": [

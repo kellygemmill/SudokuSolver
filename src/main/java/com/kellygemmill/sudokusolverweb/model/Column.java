@@ -10,7 +10,7 @@ public class Column extends SquareGroup {
 
     @Override
     public String toString() {
-        return this.squares
+        return squares
                 .stream()
                 .map(Square::toString)
                 .collect(Collectors.joining("\n"));

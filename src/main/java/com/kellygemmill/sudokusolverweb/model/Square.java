@@ -1,18 +1,23 @@
 package com.kellygemmill.sudokusolverweb.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Square {
 
     private Integer value;
-    private final boolean providedValue;
+    private boolean isFinalValue;
     private Row row;
     private Column column;
     private Box box;
 
-    public Square(Integer value, boolean providedValue) {
+    public Square(Integer value, boolean finalValue) {
         this.value = value;
-        this.providedValue = providedValue;
+        this.isFinalValue = finalValue;
     }
 
     public Integer getValue() {
@@ -20,13 +25,17 @@ public class Square {
     }
 
     public void setValue(Integer value) {
-        if (!this.providedValue) {      // protect against resetting original values
+        if (!this.isFinalValue) {      // protect against resetting original values
             this.value = value;
         }
     }
 
-    public boolean isProvidedValue() {
-        return this.providedValue;
+    public boolean isFinalValue() {
+        return this.isFinalValue;
+    }
+
+    public void setFinalValue(boolean isFinalValue) {
+        this.isFinalValue = isFinalValue;
     }
 
     public Row getRow() {
@@ -51,6 +60,18 @@ public class Square {
 
     protected void setBox(Box box) {
         this.box = box;
+    }
+
+    public List<Integer> getPossibleValues() {
+        Set<Integer> possibleValues = IntStream
+                .rangeClosed(1,row.getLength())
+                .boxed()
+                .collect(Collectors.toSet());
+
+        possibleValues.removeAll(row.getValues());
+        possibleValues.removeAll(column.getValues());
+        possibleValues.removeAll(box.getValues());
+        return new ArrayList<>(possibleValues);
     }
 
     @Override

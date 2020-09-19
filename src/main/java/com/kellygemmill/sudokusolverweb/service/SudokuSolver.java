@@ -1,11 +1,10 @@
 package com.kellygemmill.sudokusolverweb.service;
 
-import com.kellygemmill.sudokusolverweb.model.Square;
-import com.kellygemmill.sudokusolverweb.model.SquareGroup;
-import com.kellygemmill.sudokusolverweb.model.SudokuBoard;
+import com.kellygemmill.sudokusolverweb.model.*;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class SudokuSolver {
@@ -14,7 +13,46 @@ public class SudokuSolver {
         if (boardNotValid(sudokuBoard)) {
             return;
         }
+
+        boolean recheck;
+        do {
+            recheck = false;
+            for (Square square : sudokuBoard.getSquares()) {
+                List<Integer> possibleValues = square.getPossibleValues();
+                if (!square.isFinalValue() && possibleValues.size() == 1) {
+                    square.setValue(possibleValues.get(0));
+                    square.setFinalValue(true);
+                    recheck = true;
+                    continue;
+                }
+
+                if (!square.isFinalValue() &&
+                    (checkSquareGroup(square,square.getRow(),possibleValues) ||
+                    checkSquareGroup(square,square.getColumn(),possibleValues) ||
+                    checkSquareGroup(square,square.getBox(),possibleValues))) {
+                    recheck = true;
+                }
+            }
+        } while (recheck);
+
         solve(sudokuBoard,0);
+    }
+
+    private boolean checkSquareGroup(Square thisSquare, SquareGroup squareGroup, List<Integer> possibleValues) {
+        for (Integer value : possibleValues) {
+            List<Square> possibleSquares = squareGroup
+                    .getSquares()
+                    .stream()
+                    .filter(square -> !square.isFinalValue())
+                    .filter(square -> square.getPossibleValues().contains(value))
+                    .collect(Collectors.toList());
+            if (possibleSquares.size() == 1) {
+                thisSquare.setValue(value);
+                thisSquare.setFinalValue(true);
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean solve(SudokuBoard sudokuBoard, int startIdx) {
@@ -24,18 +62,16 @@ public class SudokuSolver {
         }
 
         Square square = sudokuBoard.getSquares().get(startIdx);
-        if (square.isProvidedValue()) {
+        if (square.isFinalValue()) {
             return solve(sudokuBoard, startIdx + 1);
         }
 
-        for (int guess = 1; guess <= sudokuBoard.getSideLength(); guess++) {
-            if (okToAddNumber(square,guess)) {
-                square.setValue(guess);
-                if (solve(sudokuBoard,startIdx+1)) {
-                    return true;          // don't try any more if this number solves it
-                }
-                clearValues(sudokuBoard,startIdx);
+        for (Integer value : square.getPossibleValues()) {
+            square.setValue(value);
+            if (solve(sudokuBoard,startIdx+1)) {
+                return true;          // don't try any more if this number solves it
             }
+            clearValues(sudokuBoard,startIdx);
         }
         return false;
     }
@@ -46,29 +82,24 @@ public class SudokuSolver {
         squares.forEach(square -> square.setValue(0));
     }
 
-    private boolean okToAddNumber(Square square, int number) {
-        return okToAddNumber(square.getRow(),number)
-                && okToAddNumber(square.getColumn(), number)
-                && okToAddNumber(square.getBox(), number);
-    }
-
-    private boolean okToAddNumber(SquareGroup group, int number) {
-        return !group.getValues().containsKey(number);
-    }
-
-    private boolean containsDuplicates(Square square) {
-        return containsDuplicates(square.getRow(),square.getValue())
-                || containsDuplicates(square.getColumn(),square.getValue())
-                || containsDuplicates(square.getBox(),square.getValue());
-    }
-
-    private boolean containsDuplicates(SquareGroup group, int number) {
-        return group.getValues().get(number) > 1;
+    private boolean containsDuplicates(SquareGroup group) {
+        Set<Integer> values = new HashSet<>(group.getValues());
+        return values.size() != group.getValues().size();
     }
 
     private boolean boardNotValid(SudokuBoard sudokuBoard) {
-        for (Square square : sudokuBoard.getSquares()) {
-            if (square.isProvidedValue() && containsDuplicates(square)) {
+        for (Row row : sudokuBoard.getRows()) {
+            if (containsDuplicates(row)) {
+                return true;
+            }
+        }
+        for (Column column : sudokuBoard.getColumns()) {
+            if (containsDuplicates(column)) {
+                return true;
+            }
+        }
+        for (Box box: sudokuBoard.getBoxes()) {
+            if (containsDuplicates(box)) {
                 return true;
             }
         }

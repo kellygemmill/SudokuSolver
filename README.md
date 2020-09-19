@@ -1,14 +1,54 @@
 # SudokuSolverWeb-Backend
-This is a sudoku solver app written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc).
+This is a sudoku solver app written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
+
+## How to use: 
+
+### Interactive web app:
+Input your puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com), or query the api directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Represent unknown squares as 0.  For example:
+```
+{
+  "original": [
+    0,
+    0,
+    4,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    3,
+    0,
+    0    
+  ]
+}
+```
+represents the 4x4 sudoku square: 
+```
+-----------------
+|   |   | 4 |   |
+-----------------
+|   | 1 |   |   |
+-----------------
+|   |   | 2 |   |
+-----------------
+|   | 3 |   |   |
+-----------------
+```
+Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle.
 
 ## Model: 
 The sudoku board model is composed of multiple components and makes extensive use of polymorphism and inheritance.
 
 ### Square:
-The smallest element of the model is an individual square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in.
+The smallest element of the model is an individual square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in. A method is available to query the square's row, column, and box in order to determine possible values for the square.
 
 ### SquareGroup:
-This is an abstract class representing any group of squares (row, column, box, or the entire board). 
+This is an abstract class representing any group of squares (row, column, box, or the entire board). The class implements methods to return the squares contained or return the values contained in the squares.
 
 ### Row, Column:
 These classes extend the SquareGroup class and represent the rows and columns of the board, making it easy to query whether a row or column contains a value.

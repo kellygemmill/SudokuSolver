@@ -1,5 +1,5 @@
 # SudokuSolverWeb-Backend
-This is a sudoku solver app written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
+This is a sudoku solver API written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
 
 ## How to use: 
 
@@ -78,7 +78,7 @@ Response will include the original puzzle (field name "original"), solved puzzle
 ```
 
 ## Model: 
-The sudoku board model is composed of multiple components and makes extensive use of polymorphism and inheritance.
+The sudoku board model is composed of multiple components and makes use of polymorphism and inheritance.
 
 ### Square:
 The smallest element of the model is an individual square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in. A method is available to query the square's row, column, and box in order to determine possible values for the square.

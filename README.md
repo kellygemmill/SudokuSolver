@@ -25,6 +25,14 @@ Response will include the original puzzle (field name "original"), solved puzzle
   "solution":[3,2,4,1,4,1,3,2,1,4,2,3,2,3,1,4]
 }
 ```
+If an unsolvable sudoku board is posted to the API, the same will be returned with "solved" set to false. For instance, if the number 3 appears twice in the first sub-box of the puzzle above, the following is returned: 
+```
+{
+  "solved":false,
+  "original":[3,3,4,0,0,1,0,0,0,0,2,0,0,3,0,0],
+  "solution":[3,3,4,0,0,1,0,0,0,0,2,0,0,3,0,0]
+}
+```
 
 ## Model: 
 The sudoku board model is composed of multiple components and makes use of polymorphism and inheritance.

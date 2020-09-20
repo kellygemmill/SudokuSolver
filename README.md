@@ -1,84 +1,41 @@
 # SudokuSolverWeb-Backend
-This is a sudoku solver app written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
+This is a sudoku solver API written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
 
 ## How to use: 
 
 ### Interactive web app:
-Input a puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and the solution will be displayed instantly.
+Input a puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and the solution will be displayed.
 
 ### API:
-Query the API directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Represent unknown squares as 0.  For example:
+Query the API directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
 ```
 {
-  "original": [
-    3,
-    0,
-    4,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    3,
-    0,
-    0    
-  ]
+  "original": [3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0]
 }
 ```
 represents the 4x4 sudoku square: 
 
-<img src="./public/4x4.PNG" alt="4x4 sample" /> 
+<img src="./public/4x4-example.PNG" alt="4x4 sample" width="160" /> 
 
 Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle. The response for the puzzle above is: 
 ```
 {
-    "solved": true,
-    "original": [
-        0,
-        0,
-        4,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        3,
-        0,
-        0
-    ],
-    "solution": [
-        3,
-        2,
-        4,
-        1,
-        4,
-        1,
-        3,
-        2,
-        1,
-        4,
-        2,
-        3,
-        2,
-        3,
-        1,
-        4
-    ]
+  "solved":true,
+  "original":[3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0],
+  "solution":[3,2,4,1,4,1,3,2,1,4,2,3,2,3,1,4]
+}
+```
+If an unsolvable sudoku board is posted to the API, the same will be returned with "solved" set to false. For instance, if the number 3 appears twice in the first sub-box of the puzzle above, the following is returned: 
+```
+{
+  "solved":false,
+  "original":[3,3,4,0,0,1,0,0,0,0,2,0,0,3,0,0],
+  "solution":[3,3,4,0,0,1,0,0,0,0,2,0,0,3,0,0]
 }
 ```
 
 ## Model: 
-The sudoku board model is composed of multiple components and makes extensive use of polymorphism and inheritance.
+The sudoku board model is composed of multiple components and makes use of polymorphism and inheritance.
 
 ### Square:
 The smallest element of the model is an individual square, which holds a value and a boolean indicating whether it was provided in the original puzzle. The squares also keep track of which row, column, and box they are located in. A method is available to query the square's row, column, and box in order to determine possible values for the square.

@@ -4,10 +4,10 @@ This is a sudoku solver API written in Java using Spring Boot. This app uses bac
 ## How to use: 
 
 ### Interactive web app:
-Input a puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and the solution will be displayed.
+Input a puzzle at [http://sudoku-kg.herokuapp.com](http://sudoku-kg.herokuapp.com) and the solution will be displayed.
 
 ### API:
-Query the API directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
+Query the API directly with a post request to [http://sudoku-api-kg.herokuapp.com](http://sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
 ```
 {
   "original": [3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0]

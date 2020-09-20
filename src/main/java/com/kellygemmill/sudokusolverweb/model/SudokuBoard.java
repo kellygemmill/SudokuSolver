@@ -20,7 +20,7 @@ public class SudokuBoard extends Box {
             throw new IllegalArgumentException("Sub-boxes must sum to total grid dimension.");
         }
 
-        rows.forEach(row -> row.getSquares().forEach(square -> square.setRow(row)));
+        rows.forEach(row -> row.getSquares().forEach(square -> square.setRow(row))); // Set row for each square
 
         this.columns = this.makeColumns();
         this.boxes = this.makeBoxes();
@@ -35,7 +35,7 @@ public class SudokuBoard extends Box {
                 thisColumnSquares.add(row.getSquares().get(i));
             }
             Column thisColumn = new Column(thisColumnSquares);
-            thisColumnSquares.forEach(square -> square.setColumn(thisColumn));
+            thisColumnSquares.forEach(square -> square.setColumn(thisColumn)); // Set column for each square
             columns.add(thisColumn);
         }
         return columns;
@@ -44,7 +44,7 @@ public class SudokuBoard extends Box {
     private List<Box> makeBoxes() {
         List<Box> boxes = new ArrayList<>();
         for (int i = 0; i < sideLength; i++) {       // Loop over all boxes (9 for standard sudoku)
-            int boxRow = i / subBoxLength;       // Find out which row and column this box is (0-2 for standard sudoku)
+            int boxRow = i / subBoxLength;           // Find out which row and column this box is (0-2 for standard sudoku)
             int boxCol = i % subBoxLength;
 
             int startingRow = boxRow*subBoxLength;
@@ -59,7 +59,7 @@ public class SudokuBoard extends Box {
                                 .subList(startingCol,startingCol+subBoxLength));
             }
             Box thisBox = new Box(thisBoxSquares);
-            thisBoxSquares.forEach(square -> square.setBox(thisBox));
+            thisBoxSquares.forEach(square -> square.setBox(thisBox));   // Set sub-box for each square
             boxes.add(thisBox);
         }
         return boxes;

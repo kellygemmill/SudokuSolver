@@ -10,24 +10,7 @@ Input a puzzle at [sudoku-kg.herokuapp.com](sudoku-kg.herokuapp.com) and the sol
 Query the API directly with a post request to [sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
 ```
 {
-  "original": [
-    3,
-    0,
-    4,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    3,
-    0,
-    0    
-  ]
+  "original": [3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0]
 }
 ```
 represents the 4x4 sudoku square: 
@@ -37,43 +20,9 @@ represents the 4x4 sudoku square:
 Response will include the original puzzle (field name "original"), solved puzzle if available (field name "solution"), and boolean stating whether the puzzle was solved (fieldname "solved"). If the puzzle was not solved, the "solution" field will contain the original puzzle. The response for the puzzle above is: 
 ```
 {
-    "solved": true,
-    "original": [
-        0,
-        0,
-        4,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        3,
-        0,
-        0
-    ],
-    "solution": [
-        3,
-        2,
-        4,
-        1,
-        4,
-        1,
-        3,
-        2,
-        1,
-        4,
-        2,
-        3,
-        2,
-        3,
-        1,
-        4
-    ]
+  "solved":true,
+  "original":[3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0],
+  "solution":[3,2,4,1,4,1,3,2,1,4,2,3,2,3,1,4]
 }
 ```
 

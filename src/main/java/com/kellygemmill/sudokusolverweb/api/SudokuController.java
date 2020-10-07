@@ -17,6 +17,11 @@ public class SudokuController {
         this.sudokuService = sudokuService;
     }
 
+    @GetMapping
+    public String wakeServer() throws Exception {
+        return "API is ready";
+    }
+
     @PostMapping
     public SudokuSummary solveBoard(@RequestBody SudokuSummary boardInput) {
         return sudokuService.solve(boardInput);

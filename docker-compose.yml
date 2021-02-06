@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  sudoku-backend:
+    image: "sudoku-backend:latest"  
+    container_name: sudoku-backend
+    ports: 
+      - 8080:8080
+  
+  sudoku-frontend:
+    image: "sudoku-frontend:latest"
+    container_name: sudoku-frontend
+    ports:
+      - 80:80

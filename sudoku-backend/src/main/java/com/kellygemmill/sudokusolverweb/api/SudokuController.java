@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("sudoku/solve")
-@CrossOrigin(origins = "*")
+@RequestMapping("api/solve")
+//@CrossOrigin(origins = "*")
 public class SudokuController {
 
     private final SudokuService sudokuService;
@@ -18,8 +18,8 @@ public class SudokuController {
     }
 
     @GetMapping
-    public String wakeServer() throws Exception {
-        return "API is ready";
+    public String checkServer() throws Exception {
+        return "Ready to solve!";
     }
 
     @PostMapping

@@ -19,7 +19,10 @@ public class SudokuController {
 
     @GetMapping
     public String checkServer() throws Exception {
-        return "Ready to solve!";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Ready to solve! ");
+        sb.append("See https://github.com/kellygemmill/SudokuSolver/blob/master/Readme.md#SudokuSolverWeb-Backend for API instructions.");
+        return sb.toString();
     }
 
     @PostMapping

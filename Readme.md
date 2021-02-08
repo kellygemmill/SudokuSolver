@@ -11,7 +11,7 @@ This application can be viewed online at [http://sudoku.kellygemmill.com](http:/
 ### Solved 9x9 Board:
 <img src="./sudoku-frontend/public/9x9-solved-example.PNG" alt="9x9 unsolved board" width="350"/>
 
-# SudokuSolverWeb-Frontend
+# Sudoku Solver - Frontend
 This is the front end of a sudoku solver web app written in Javascript using React. The page was styled using React Boostrap. 
 
 ## React Components:
@@ -63,7 +63,7 @@ This function converts the integers sent from the API back to a characters, incl
 #### handleSudokuInput(event):
 This function updates the sudoku board state variable to what is input by the user. The function ensures that each box only contains one value, which is bounde by the size of the board (e.g. if the user tries to input a 5 in a 4x4 board, nothing is displayed). Additionally, for large boards, lowercase character entries are converted to uppercase.
 
-# SudokuSolverWeb-Backend
+# Sudoku Solver - Backend
 This is a sudoku solver API written in Java using Spring Boot. This app uses backtracking to solve a valid sudoku board of any size (4x4, 9x9, 16x16, etc). 
 
 ## How to use: 

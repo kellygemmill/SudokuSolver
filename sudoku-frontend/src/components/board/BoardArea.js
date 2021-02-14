@@ -9,7 +9,7 @@ import BottomButtons from './BottomButtons'
 
 const BoardArea = () => {
 
-    const apiAddress = 'http://sudoku.kellygemmill.com/api/solve';
+    const apiAddress = 'https://sudoku.kellygemmill.com/api/solve';
     const [boardLength, setBoardLength] = useState(9)
     const [boardSize, setBoardSize] = useState(boardLength * boardLength)
     const [sudokuBoard, setSudokuBoard] = useState(new Array(boardSize).fill(''))

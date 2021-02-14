@@ -21,7 +21,8 @@ public class SudokuController {
     public String checkServer() throws Exception {
         StringBuilder sb = new StringBuilder();
         sb.append("Ready to solve! ");
-        sb.append("See https://github.com/kellygemmill/SudokuSolver/blob/master/Readme.md#sudoku-solver---backend for API instructions.");
+        sb.append("API instructions:");
+        sb.append("https://github.com/kellygemmill/SudokuSolver/blob/master/Readme.md#sudoku-solver---backend");
         return sb.toString();
     }
 

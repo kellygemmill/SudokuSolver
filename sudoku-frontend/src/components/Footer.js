@@ -18,7 +18,7 @@ const Footer = () => {
             <Button style={buttonStyle} variant="outline-dark" href="https://github.com/kellygemmill/SudokuSolver"
                 target="_blank" rel="noopener noreferrer">View on GitHub</Button>
             <p style={{ marginTop: "5px" }}>&copy; {new Date().getFullYear()} {' '}
-                <a href="http://www.kellygemmill.com" target="_blank" rel="noopener noreferrer">Kelly Gemmill</a></p>
+                <a href="https://www.kellygemmill.com" target="_blank" rel="noopener noreferrer">Kelly Gemmill</a></p>
         </div>
     )
 }

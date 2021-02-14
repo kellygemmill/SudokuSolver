@@ -1,7 +1,7 @@
 # Sudoku Solver 
 This is a application that can solve a sudoku puzzle. The backend of this application is written in Java while the front end is written in JavaScript using React. 
 
-This application can be viewed online at [http://sudoku.kellygemmill.com](http://sudoku.kellygemmill.com). Additionally, the API can be queried directly by sending a post request containing the puzzle to [http://sudoku.kellygemmill.com/api/solve](http://sudoku.kellygemmill.com/api/solve) (see below for details). 
+This application can be viewed online at [https://sudoku.kellygemmill.com](https://sudoku.kellygemmill.com). Additionally, the API can be queried directly by sending a post request containing the puzzle to [https://sudoku.kellygemmill.com/api/solve](https://sudoku.kellygemmill.com/api/solve) (see below for details). 
 
 ## Sample Screenshots: 
 
@@ -69,7 +69,7 @@ This is a sudoku solver API written in Java using Spring Boot. This app uses bac
 ## How to use: 
 
 ### API:
-Query the API directly with a post request to [http://sudoku.kellygemmill.com/api/solve](http://sudoku.kellygemmill.com/api/solve). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
+Query the API directly with a post request to [https://sudoku.kellygemmill.com/api/solve](https://sudoku.kellygemmill.com/api/solve). Request body should send the puzzle as a 1-d integer array, filled out row by row, in the field name "original". Input array must represent a perfect square (e.g. 4x4, 9x9, 16x16). Represent unknown squares as 0.  For example:
 ```
 {
   "original": [3,0,4,0,0,1,0,0,0,0,2,0,0,3,0,0]

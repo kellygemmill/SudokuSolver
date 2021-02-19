@@ -1,7 +1,7 @@
 # Build the React application
 FROM node:14.15.4-alpine3.12 AS node_builder
 ADD . ./
-RUN npm install --silent
+RUN npm install 
 RUN npm run build
 
 # Final Stage Build

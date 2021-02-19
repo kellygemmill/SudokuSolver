@@ -6,14 +6,52 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #dbe2ef;
-  padding: 25px 150px;
+  padding-top: 0;
 }
 
 h1 {
-  text-align: center;  
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.around-board {
+  text-align: center;
+  height: auto;
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.above-board {
+  border-style: solid;
+  border-color: #888;
+}
+
+.top-button-group {
+  margin-bottom: 15px;
+  margin-right: 0px;
+  margin-left: 0px;
+  background-color: #eee;
+}
+
+.directions {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+.gh-button {
+  margin: 5px 5px 10px;
+  width: 150px;
+  background-color: #eee;
+}
+

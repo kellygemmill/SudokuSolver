@@ -1,0 +1,20 @@
+{
+    "pageTitle": "Dictionary",
+    "searchDescription": "Enter search term",
+    "searchButton": "Search",
+    "viewOnGitHub": "View on GitHub",
+    "all": "All",
+    "jj": "J-J",
+    "je": "J-E",
+    "ej": "E-J",
+    "allDescription": "Search All Dictionaries",
+    "jjDescription": "Japanese to Japanese Only",
+    "jeDescription": "Japanese to English Only",
+    "ejDescription": "English to Japanese Only",
+    "kellygemmill": "Kelly Gemmill",
+    "home": "Home",
+    "projects": "Projects",
+    "github": "GitHub",
+    "sudoku": "Sudoku Solver",
+    "dictionary": "Dictionary"
+}

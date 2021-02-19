@@ -9,7 +9,7 @@ import BottomButtons from './BottomButtons'
 
 const BoardArea = () => {
 
-    const apiAddress = 'https://sudoku.kellygemmill.com/api/solve';
+    const apiAddress = 'https://sudokusolver.kellygemmill.com/api/solve';
     const [boardLength, setBoardLength] = useState(9)
     const [boardSize, setBoardSize] = useState(boardLength * boardLength)
     const [sudokuBoard, setSudokuBoard] = useState(new Array(boardSize).fill(''))
@@ -82,30 +82,16 @@ const BoardArea = () => {
         setSudokuBoard(newValues)
     }
 
-    const topStyle = {
-        height: "auto",
-        width: `${350}px`, // approximately the size of a 9x9
-        margin: "10px auto",
-        textAlign: "center"
-    }
-
-    const bottomStyle = {
-        height: "auto",
-        width: `${350}px`, // approximately the size of a 9x9
-        margin: "10px auto",
-        textAlign: "center"
-    }
-
     return (
         <div>
-            <div style={topStyle}>
+            <div className='around-board above-board'>
                 <BoardSizeSelector handleClick={resetPuzzleSize} />
                 <LargeBoardDirections boardLength={boardLength} />
             </div>
             <div>
                 <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
             </div>
-            <div style={bottomStyle}>
+            <div className='around-board'>
                 <BottomButtons solvePuzzle={solvePuzzle} resetPuzzle={resetPuzzle} />
                 <Solution solutionFound={solutionFound} />
                 <Directions />

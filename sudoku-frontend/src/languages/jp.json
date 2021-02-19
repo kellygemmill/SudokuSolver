@@ -1,0 +1,20 @@
+{
+    "pageTitle": "辞書",
+    "searchDescription": "調べたい言葉を入力",
+    "searchButton": "検索",
+    "viewOnGitHub": "GitHubで見る",
+    "all": "全て",
+    "jj": "国語",
+    "je": "和英",
+    "ej": "英和",
+    "allDescription": "全て検索",
+    "jjDescription": "国語辞典のみ",
+    "jeDescription": "和英辞典のみ",
+    "ejDescription": "英和辞典のみ",
+    "kellygemmill": "ゲミル・ケリー",
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "github": "GitHub",
+    "sudoku": "数独ソルバー",
+    "dictionary": "辞書"
+}

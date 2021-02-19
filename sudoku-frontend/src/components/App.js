@@ -1,15 +1,19 @@
 import React from 'react';
-import BoardArea from './board/BoardArea'
-import Footer from './Footer'
+import { LanguageProvider, Text } from 'containers/Language';
+import BoardArea from 'components/board/BoardArea'
+import Footer from 'components/Footer'
+import NavigationBar from 'components/NavigationBar'
 
 const App = () => {
-  return (
-    <div>
-      <h1>Sudoku Solver</h1>
-      <BoardArea />
-      <Footer />
-    </div>
-  )
+
+    return (
+        <LanguageProvider>
+            <NavigationBar className='navigation-bar' />
+            <h1><Text textId='sudoku' /></h1>
+            <BoardArea />
+            <Footer />
+        </LanguageProvider>
+    )
 }
 
 export default App;

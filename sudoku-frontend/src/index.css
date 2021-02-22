@@ -32,6 +32,7 @@ code {
 .above-board {
   border-style: solid;
   border-color: #888;
+  border-radius: .25rem;
 }
 
 .top-button-group {

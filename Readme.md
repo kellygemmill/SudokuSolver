@@ -6,10 +6,10 @@ This application can be viewed online at [https://sudoku.kellygemmill.com](https
 ## Sample Screenshots: 
 
 ### Unsolved 9x9 Board: 
-<img src="./sudoku-frontend/public/9x9-unsolved-example.PNG" alt="9x9 unsolved board" width="350"/>
+<img src="./sudoku-frontend/public/9x9-unsolved-example.PNG" alt="9x9 unsolved board" width="450"/>
 
 ### Solved 9x9 Board:
-<img src="./sudoku-frontend/public/9x9-solved-example.PNG" alt="9x9 unsolved board" width="350"/>
+<img src="./sudoku-frontend/public/9x9-solved-example.PNG" alt="9x9 unsolved board" width="450"/>
 
 # Sudoku Solver - Frontend
 This is the front end of a sudoku solver web app written in Javascript using React. The page was styled using React Boostrap. 

@@ -8,9 +8,11 @@ const App = () => {
 
     return (
         <LanguageProvider>
-            <NavigationBar className='navigation-bar' />
-            <h1><Text textId='sudoku' /></h1>
-            <BoardArea />
+            <div className="content">
+                <NavigationBar className='navigation-bar' />
+                <h1><Text textId='sudoku' /></h1>
+                <BoardArea />
+            </div>
             <Footer />
         </LanguageProvider>
     )

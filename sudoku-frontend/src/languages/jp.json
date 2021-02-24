@@ -3,10 +3,10 @@
     "searchDescription": "調べたい言葉を入力",
     "searchButton": "検索",
     "viewOnGitHub": "GitHubで見る",
-    "all": "全て",
-    "jj": "国語",
-    "je": "和英",
-    "ej": "英和",
+    "ALL": "全て",
+    "JtoJ": "国語",
+    "JtoE": "和英",
+    "EtoJ": "英和",
     "allDescription": "全て検索",
     "jjDescription": "国語辞典のみ",
     "jeDescription": "和英辞典のみ",
@@ -16,5 +16,7 @@
     "projects": "プロジェクト",
     "github": "GitHub",
     "sudoku": "数独ソルバー",
-    "dictionary": "辞書"
+    "dictionary": "辞書",
+    "contact": "お問い合わせ",
+    "summary": "全てを表示"
 }

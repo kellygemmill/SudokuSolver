@@ -3,10 +3,10 @@
     "searchDescription": "Enter search term",
     "searchButton": "Search",
     "viewOnGitHub": "View on GitHub",
-    "all": "All",
-    "jj": "J-J",
-    "je": "J-E",
-    "ej": "E-J",
+    "ALL": "All",
+    "JtoJ": "J-J",
+    "JtoE": "J-E",
+    "EtoJ": "E-J",
     "allDescription": "Search All Dictionaries",
     "jjDescription": "Japanese to Japanese Only",
     "jeDescription": "Japanese to English Only",
@@ -16,5 +16,7 @@
     "projects": "Projects",
     "github": "GitHub",
     "sudoku": "Sudoku Solver",
-    "dictionary": "Dictionary"
+    "dictionary": "Dictionary",
+    "contact": "Contact",
+    "summary": "Show All"
 }
